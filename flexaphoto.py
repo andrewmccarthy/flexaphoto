@@ -30,22 +30,24 @@ for img in sys.argv[1:7]:
 
     # Rotate if necessary
     if orientation_key:
-        orientation = i._getexif().get(orientation_key, 1)
+        exif = i._getexif()
+        if exif:
+            orientation = exif.get(orientation_key, 1)
 
-        if orientation == 2:
-            i = i.transpose(Image.FLIP_LEFT_RIGHT)
-        elif orientation == 3:
-            i = i.rotate(180)
-        elif orientation == 4:
-            i = i.rotate(180).transpose(Image.FLIP_LEFT_RIGHT)
-        elif orientation == 5:
-            i = i.rotate(-90).transpose(Image.FLIP_LEFT_RIGHT)
-        elif orientation == 6:
-            i = i.rotate(-90)
-        elif orientation == 7:
-            i = i.rotate(90).transpose(Image.FLIP_LEFT_RIGHT)
-        elif orientation == 8:
-            i = i.rotate(90)
+            if orientation == 2:
+                i = i.transpose(Image.FLIP_LEFT_RIGHT)
+            elif orientation == 3:
+                i = i.rotate(180)
+            elif orientation == 4:
+                i = i.rotate(180).transpose(Image.FLIP_LEFT_RIGHT)
+            elif orientation == 5:
+                i = i.rotate(-90).transpose(Image.FLIP_LEFT_RIGHT)
+            elif orientation == 6:
+                i = i.rotate(-90)
+            elif orientation == 7:
+                i = i.rotate(90).transpose(Image.FLIP_LEFT_RIGHT)
+            elif orientation == 8:
+                i = i.rotate(90)
 
     # Crop to square (centered)
     x, y = i.size
