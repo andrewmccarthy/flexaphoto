@@ -27,3 +27,6 @@ and it will output `front.jpg` and `back.jpg`. Print them
 back-to-back, making sure to centre it on the page so they
 line up. Cut and fold as per Matt Parker's instructions on
 Numberphile: https://youtu.be/7H4lDi79YY8
+
+Note: Input images should ideally be square, but if not they
+will be cropped, taking the centremost area of the image.
